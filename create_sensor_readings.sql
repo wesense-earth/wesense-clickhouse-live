@@ -38,5 +38,5 @@ CREATE TABLE IF NOT EXISTS wesense.sensor_readings
 ENGINE = ReplacingMergeTree(timestamp)
 PARTITION BY toYYYYMM(timestamp)
 ORDER BY (device_id, reading_type, timestamp)
-TTL timestamp + toIntervalDay(90)
+TTL toDateTime(timestamp) + toIntervalYear(3)
 SETTINGS index_granularity = 8192;

@@ -1,11 +1,11 @@
--- Sensormap database for region mapping and caching
--- Used by wesense-sensormap for spatial queries
+-- Respiro database for region mapping and caching
+-- Used by wesense-respiro for spatial queries
 
-CREATE DATABASE IF NOT EXISTS sensormap;
+CREATE DATABASE IF NOT EXISTS wesense_respiro;
 
 -- Region boundaries table for point-in-polygon queries
 -- Stores administrative boundaries at multiple levels (ADM0-ADM4)
-CREATE TABLE IF NOT EXISTS sensormap.region_boundaries
+CREATE TABLE IF NOT EXISTS wesense_respiro.region_boundaries
 (
     `region_id` String,
     `admin_level` UInt8,
@@ -24,7 +24,7 @@ SETTINGS index_granularity = 8192;
 
 -- Cache device locations to regions (updated periodically)
 -- Avoids expensive point-in-polygon queries at read time
-CREATE TABLE IF NOT EXISTS sensormap.device_region_cache
+CREATE TABLE IF NOT EXISTS wesense_respiro.device_region_cache
 (
     `device_id` String,
     `latitude` Float64,

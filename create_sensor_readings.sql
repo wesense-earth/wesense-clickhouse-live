@@ -38,7 +38,8 @@ CREATE TABLE IF NOT EXISTS wesense.sensor_readings
     `signature` String DEFAULT '' COMMENT 'Ed25519 signature (hex)',
     `ingester_id` LowCardinality(String) DEFAULT '' COMMENT 'Signing ingester ID (wsi_xxxxxxxx)',
     `key_version` UInt32 DEFAULT 0 COMMENT 'Signing key version',
-    `received_via` LowCardinality(String) DEFAULT 'local' COMMENT 'How this station received the reading: local or p2p'
+    `received_via` LowCardinality(String) DEFAULT 'local' COMMENT 'How this station received the reading: local or p2p',
+    `data_license` LowCardinality(String) DEFAULT 'CC-BY-4.0' COMMENT 'Data license for this reading (default CC-BY-4.0 for WeSense-originated data)'
 )
 ENGINE = ReplacingMergeTree(timestamp)
 PARTITION BY toYYYYMM(timestamp)

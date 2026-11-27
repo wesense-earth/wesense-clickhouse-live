@@ -1,7 +1,7 @@
 #!/bin/bash
 # Migration 002: Standardise data_source values
 # Run on each ClickHouse host. Pass credentials as arguments:
-#   ./run_002_migration.sh localhost default 'v3r8^t1m77'
+#   ./run_002_migration.sh localhost default "$CLICKHOUSE_ADMIN_PASSWORD"
 #   ./run_002_migration.sh 192.168.43.11 default 'password_here'
 
 HOST="${1:-localhost}"
